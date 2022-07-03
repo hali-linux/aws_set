@@ -107,13 +107,8 @@ resource "aws_instance" "example" {
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.new_public_subnet_2a.id
   vpc_security_group_ids = [aws_security_group.instance.id]
-  key_name  = "new-key"
-  user_data = <<-EOF
-              #!/bin/bash
-              yum install -y httpd
-              systemctl enable --now httpd
-              echo "Hello, Terraform AWS_Set" > /var/www/html/index.html
-              EOF
+  key_name               = "new-key"
+  user_data              = file("user-data.sh")
 
   tags = {
     Name = "terraform-example"
