@@ -112,7 +112,7 @@ resource "aws_instance" "example" {
               #!/bin/bash
               yum install -y httpd
               systemctl enable --now httpd
-              echo "Hello, Terraform" > /var/www/html/index.html
+              echo "Hello, Terraform AWS_Set" > /var/www/html/index.html
               EOF
 
   tags = {
