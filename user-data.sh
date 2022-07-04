@@ -1,0 +1,4 @@
+#! /bin/bash
+yum install -y httpd
+systemctl enable --now httpd
+echo "Hello, AWS IaC" > /var/www/html/index.html
